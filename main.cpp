@@ -18,11 +18,19 @@ void exec() {
 
 void install() {
     std::this_thread::sleep_for(std::chrono::seconds(4));
+    #if defined(__APPLE__) || defined(__MACH__)
     std::system("osascript -e 'do shell script \"xcode-select --install\" with administrator privileges'");
+    #elif defined(_WIN32) || defined(_WIN64)
+    std::system("winget install llvm.llvm --scope user --silent --accept-source-agreements --accept-package-agreements");
+    #endif
     loadinginclang = false;
     loadinginraylib = true;
     std::this_thread::sleep_for(std::chrono::seconds(7));
+    #if defined(__APPLE__) || defined(__MACH__)
     std::system("mkdir -p ~/homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C ~/homebrew && eval \"$($HOME/homebrew/bin/brew shellenv)\" && echo 'eval \"$($HOME/homebrew/bin/brew shellenv)\"' >> ~/.zprofile && brew install raylib");
+    #elif defined(_WIN32) || defined(_WIN64)
+    std::system("mkdir %USERPROFILE%\\raylib && curl -L https://github.com/raysan5/raylib/releases/download/5.5/raylib-5.5_win64_msvc16.zip -o %USERPROFILE%\\raylib.zip && tar -xf %USERPROFILE%\\raylib.zip -C %USERPROFILE%\\raylib --strip-components 1 && del %USERPROFILE%\\raylib.zip");
+    #endif
     loadinginraylib = false;
 };
 
