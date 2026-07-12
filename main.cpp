@@ -133,7 +133,7 @@ int main() {
 
         DrawTextEx(FiraMono, CodeText.c_str(), (Vector2){ 60, 60 }, 10, 1, WHITE);
 
-        DrawTextEx(Comfortaa, "Hey! I bet you ope-\n-ned this to get help\n, and first of all\n, double click on\n ./CodeNC to open\n the app. \nGo into the \n projects/ \nto see the file \nnamed test.cpp\n, if you don't\n want to use\n the editor \nin the app, click it \nand code there.", (Vector2){ 810, 40 }, 20, 1, WHITE);
+        DrawTextEx(Comfortaa, "Hey! I bet you ope-\n-ned this to get help\n, and first of all\n, double click on\n ./CodeNC to open\n the app. \nGo into the \n projects/ \nto see the file \nnamed test.cpp\n, if you don't\n want to use\n the editor \nin the app, click it \nand code there.\nFor more, visit \nhttps://code-and-c.artificial-intelligence.workers.dev", (Vector2){ 810, 40 }, 20, 1, WHITE);
 
         // LOADING TEXT:
 
